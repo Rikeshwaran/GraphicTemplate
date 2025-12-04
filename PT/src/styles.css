@@ -1,3 +1,4 @@
+/* ---------------- GLOBAL ---------------- */
 body {
   margin: 0;
   background: #000;
@@ -6,29 +7,183 @@ body {
   font-family: Arial, sans-serif;
 }
 
-.menu {
-  position: fixed;
-  top: 20px;
-  left: 20px;
+/* Keep sections ABOVE canvas but not affecting layout */
+.sections {
+  position: relative;
   z-index: 10;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
 }
 
-.menu button {
-  padding: 10px 20px;
-  background: rgba(255,255,255,0.15);
+/* ---------------- 3D CANVAS ---------------- */
+canvas {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: -1 !important;
+  pointer-events: none;
+}
+
+/* ---------------- HEADER ---------------- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+  box-sizing: border-box;
+}
+
+.brand {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* ---------------- DOT NAVIGATION ---------------- */
+.dots {
+  display: flex;
+  gap: 12px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #555;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dot:hover {
+  background: white;
+  box-shadow: 0 0 8px white;
+}
+
+.active-dot {
+  background: white;
+  box-shadow: 0 0 15px white;
+  animation: pulse 1.2s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 3px white; }
+  50% { box-shadow: 0 0 15px white; }
+  100% { box-shadow: 0 0 3px white; }
+}
+
+/* ---------------- MENU BUTTON ---------------- */
+.menu-btn {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(6px);
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
   color: white;
+}
+
+.menu-btn:hover {
+  background: rgba(255,255,255,0.3);
+  box-shadow: 0 0 10px white;
+}
+
+/* Animated hamburger icon */
+.menu-icon {
+  width: 24px;
+  height: 2px;
+  background: white;
+  display: block;
+  position: relative;
+  transition: 0.3s;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: white;
+  position: absolute;
+  left: 0;
+  transition: 0.3s;
+}
+
+.menu-icon::before { top: -7px; }
+.menu-icon::after { top: 7px; }
+
+.menu-btn:hover .menu-icon {
+  transform: scale(1.05);
+}
+
+.menu-btn:hover .menu-icon::before {
+  transform: translateX(3px);
+}
+
+.menu-btn:hover .menu-icon::after {
+  transform: translateX(-3px);
+}
+
+/* ---------------- MENU MODAL ---------------- */
+.menu-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 70, 200, 0.95);
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideIn 0.35s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu-content {
+  text-align: center;
+}
+
+.menu-content button {
+  display: block;
+  width: 200px;
+  margin: 10px auto;
+  padding: 12px;
+  border-radius: 6px;
+  background: white;
   border: none;
   cursor: pointer;
-  border-radius: 6px;
-  backdrop-filter: blur(5px);
 }
 
+.close-btn {
+  background: red !important;
+  color: white;
+}
+
+/* ---------------- SECTIONS ---------------- */
 .section {
   height: 100vh;
-  padding-left: 120px;
+  width: 100%;
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* This wrapper prevents shifting the model */
+.section-content {
+  padding-left: 120px;
+  pointer-events: auto;
 }

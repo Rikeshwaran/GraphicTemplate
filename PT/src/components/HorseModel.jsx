@@ -1,18 +1,34 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, useAnimations } from "@react-three/drei";
 
 export default function HorseModel() {
-  const horse = useRef();
-  const { scene } = useGLTF("/horse.glb");
+  const group = useRef();
+
+  const { scene, animations } = useGLTF("/horse.glb");
+  const { actions } = useAnimations(animations, group);
+
+  useEffect(() => {
+    if (!actions) return;
+
+    const all = Object.values(actions);
+    if (all.length > 0) {
+      all[0].reset().fadeIn(0.5).play();
+    }
+  }, [actions]);
 
   useFrame(() => {
-    const scrollY = window.scrollY / document.body.scrollHeight;
-    if (horse.current) {
-      horse.current.rotation.y = scrollY * Math.PI * 2; // full 360 rotation
+    const scroll = window.scrollY / document.body.scrollHeight;
+    if (group.current) {
+      group.current.rotation.y = scroll * Math.PI * 2;
     }
   });
 
-  return <primitive ref={horse} object={scene} scale={1.5} position={[0, -100, -250]} />
-;
+  return (
+    <group ref={group} position={[0, -120, -250]} >
+      <primitive object={scene} scale={1.5} />
+    </group>
+  );
 }
+
+useGLTF.preload("/horse.glb");
