@@ -2,6 +2,9 @@ import React, { useRef, useEffect, useState } from "react";
 import Scene from "./components/Scene";
 import Header from "./components/Header";
 import MenuModal from "./components/MenuModal";
+import CustomCursor from "./components/CustomCursor";
+
+
 
 import Section1 from "./sections/Section1";
 import Section2 from "./sections/Section2";
@@ -61,6 +64,7 @@ export default function App() {
 
   return (
     <div>
+      <CustomCursor />   {/* <- custom cursor overlay */}
       {/* Sticky header on top */}
       <Header
         activeIndex={activeSection}

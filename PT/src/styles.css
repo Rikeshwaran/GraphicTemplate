@@ -1,11 +1,18 @@
 /* ---------------- GLOBAL ---------------- */
 body {
   margin: 0;
-  background: #000;
+  
+  background-image: url("../public/background.jpg"); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
   color: white;
   overflow-x: hidden;
   font-family: Arial, sans-serif;
 }
+
 
 /* Keep sections ABOVE canvas but not affecting layout */
 .sections {
@@ -36,6 +43,7 @@ canvas {
   align-items: center;
   z-index: 20;
   box-sizing: border-box;
+  background-color: #000;
 }
 
 .brand {
@@ -186,4 +194,64 @@ canvas {
 .section-content {
   padding-left: 120px;
   pointer-events: auto;
+}
+/* ---------------- CUSTOM CURSOR ---------------- */
+
+/* Hide default cursor */
+body {
+  cursor: none;
+}
+
+/* Inner dot */
+.cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+  pointer-events: none;
+  transform: translate3d(-100px, -100px, 0);
+  transition: transform 0.06s linear;
+  z-index: 9999;
+  opacity: 0;
+}
+
+/* Outer ring */
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  pointer-events: none;
+  transform: translate3d(-100px, -100px, 0);
+  transition: transform 0.12s ease-out;
+  z-index: 9998;
+  opacity: 0;
+  animation: cursorPulse 1.2s infinite ease-out;
+}
+
+/* Fade in when mouse is inside window */
+.cursor-visible {
+  opacity: 1;
+}
+
+/* Ring pulse animation */
+@keyframes cursorPulse {
+  0% {
+    transform: scale(1) translate3d(-100px, -100px, 0);
+    opacity: 0.9;
+  }
+  50% {
+    transform: scale(1.2) translate3d(-100px, -100px, 0);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1) translate3d(-100px, -100px, 0);
+    opacity: 0.9;
+  }
 }

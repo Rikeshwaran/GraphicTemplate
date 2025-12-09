@@ -25,7 +25,7 @@ export default function HorseModel() {
   });
 
   return (
-    <group ref={group} position={[0, -120, -250]} >
+    <group ref={group} position={[0, -3, -3]} >
       <primitive object={scene} scale={1.5} />
     </group>
   );

@@ -3,7 +3,7 @@ import React from "react";
 export default function Header({ activeIndex, onMenuClick, onDotClick }) {
   return (
     <header className="header">
-      <div className="brand">My 3D Dragon Site</div>
+      <div className="brand">My Site</div>
 
       <div className="dots">
         {[0, 1, 2, 3, 4].map((i) => (
