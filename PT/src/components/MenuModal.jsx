@@ -1,4 +1,17 @@
 import React from "react";
+import "../components/css/MenuModal.css";
+
+const menuItems = [
+  "Me",
+  "About Me",
+  "Education",
+  "Technical Skills",
+  "Experience",
+  "Projects",
+  "Achievements & Certifications",
+  "Extracurricular",
+  "Contact"
+];
 
 export default function MenuModal({ isOpen, closeModal, goToSection }) {
   if (!isOpen) return null;
@@ -6,17 +19,17 @@ export default function MenuModal({ isOpen, closeModal, goToSection }) {
   return (
     <div className="menu-modal">
       <div className="menu-content">
-        <h2>Go to section</h2>
+        <h2>Navigate</h2>
 
-        {[0, 1, 2, 3, 4].map((i) => (
+        {menuItems.map((label, index) => (
           <button
-            key={i}
+            key={index}
             onClick={() => {
-              goToSection(i);
+              goToSection(index);
               closeModal();
             }}
           >
-            Section {i + 1}
+            {label}
           </button>
         ))}
 

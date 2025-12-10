@@ -1,0 +1,13 @@
+.achievements-section {
+  height: 100vh;
+  padding: 120px;
+  color: white;
+}
+
+.achievement-item {
+  background: rgba(255,255,255,0.1);
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  backdrop-filter: blur(10px);
+}

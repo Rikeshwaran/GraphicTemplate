@@ -1,0 +1,31 @@
+.footer-section {
+  height: 70vh;
+  padding: 120px;
+  color: white;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-section h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.footer-section a {
+  color: #4b9fff;
+  text-decoration: none;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+}
+
+.copy {
+  opacity: 0.7;
+  margin-top: 30px;
+  font-size: 14px;
+}

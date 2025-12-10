@@ -1,0 +1,46 @@
+.menu-modal {
+  position: fixed;
+  top: 70px; 
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(12px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5000; 
+}
+
+
+
+.menu-content {
+  width: 350px;
+  padding: 25px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(20px);
+  box-shadow: 
+    0 10px 40px rgba(0,0,0,0.4),
+    inset 0 0 20px rgba(255,255,255,0.15);
+  transform: translateZ(40px);
+  border: 1px solid rgba(255,255,255,0.25);
+  text-align: center;
+}
+
+.menu-content button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  background: linear-gradient(135deg,#4b9fff,#0066ff);
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.close-btn {
+  background: rgba(255,255,255,0.25) !important;
+}

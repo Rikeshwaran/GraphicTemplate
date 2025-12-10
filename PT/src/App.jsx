@@ -6,11 +6,17 @@ import CustomCursor from "./components/CustomCursor";
 
 
 
-import Section1 from "./sections/Section1";
-import Section2 from "./sections/Section2";
-import Section3 from "./sections/Section3";
-import Section4 from "./sections/Section4";
-import Section5 from "./sections/Section5";
+import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Education from "./sections/Education";
+import Skills from "./sections/Skills";
+import Experience from "./sections/Experience";
+import Projects from "./sections/Projects";
+import Achievements from "./sections/Achievements";
+import Extracurricular from "./sections/Extracurricular";
+import Footer from "./sections/Footer";
+
+
 
 export default function App() {
   const sectionsRef = useRef([]);
@@ -85,26 +91,17 @@ export default function App() {
 
       {/* Foreground sections */}
       <div className="sections">
-        <Section1
-          ref={(el) => (sectionsRef.current[0] = el)}
-          data-index="0"
-        />
-        <Section2
-          ref={(el) => (sectionsRef.current[1] = el)}
-          data-index="1"
-        />
-        <Section3
-          ref={(el) => (sectionsRef.current[2] = el)}
-          data-index="2"
-        />
-        <Section4
-          ref={(el) => (sectionsRef.current[3] = el)}
-          data-index="3"
-        />
-        <Section5
-          ref={(el) => (sectionsRef.current[4] = el)}
-          data-index="4"
-        />
+       
+        <Hero ref={(el) => (sectionsRef.current[0] = el)} data-index="0" />
+        <About ref={(el) => (sectionsRef.current[1] = el)} data-index="1" />
+        <Education ref={(el) => (sectionsRef.current[2] = el)} data-index="2" />
+        <Skills ref={(el) => (sectionsRef.current[3] = el)} data-index="3" />
+        <Experience ref={(el) => (sectionsRef.current[4] = el)} data-index="4" />
+        <Projects ref={(el) => (sectionsRef.current[5] = el)} data-index="5" />
+        <Achievements ref={(el) => (sectionsRef.current[6] = el)} data-index="6" />
+        <Extracurricular ref={(el) => (sectionsRef.current[7] = el)} data-index="7" />
+        <Footer ref={(el) => (sectionsRef.current[8] = el)} data-index="8" />
+
       </div>
     </div>
   );

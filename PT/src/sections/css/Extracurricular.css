@@ -1,0 +1,13 @@
+.extracurricular-section {
+  height: 100vh;
+  padding: 120px;
+  color: white;
+}
+
+.activity-card {
+  margin-bottom: 15px;
+  padding: 16px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+}

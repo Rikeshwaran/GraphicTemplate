@@ -1,0 +1,18 @@
+.education-section {
+  height: 100vh;
+  padding: 120px;
+  color: white;
+}
+
+.education-section h1 {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.education-card {
+  background: rgba(255,255,255,0.1);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+}

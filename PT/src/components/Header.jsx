@@ -1,12 +1,15 @@
 import React from "react";
+import "../components/css/Header.css";
+
+const sections = new Array(9).fill(0);
 
 export default function Header({ activeIndex, onMenuClick, onDotClick }) {
   return (
     <header className="header">
       <div className="brand">My Site</div>
-
+           
       <div className="dots">
-        {[0, 1, 2, 3, 4].map((i) => (
+        {sections.map((_, i) => (
           <span
             key={i}
             className={`dot ${activeIndex === i ? "active-dot" : ""}`}

@@ -1,0 +1,13 @@
+.experience-section {
+  height: 100vh;
+  padding: 120px;
+  color: white;
+}
+
+.experience-item {
+  margin-bottom: 20px;
+  background: rgba(255,255,255,0.08);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+}
