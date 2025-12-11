@@ -1,25 +1,174 @@
+/* ---------------------- HERO LAYOUT ---------------------- */
+
 .hero-section {
   height: 100vh;
   display: flex;
-  align-items: center;
-  padding-left: 120px;
+  justify-content: space-between;
+  padding: 60px 120px;
   color: white;
   position: relative;
+  font-family: "Consolas", "JetBrains Mono", monospace;
 }
 
-.hero-section h1 {
-  font-size: 64px;
-  font-weight: 800;
-  margin: 0;
-  animation: fadeInUp 1s ease forwards;
+/* LEFT SIDE (TOP LEFT FIXED) */
+.hero-left {
+  max-width: 50%;
+  align-self: flex-start;        /* force to top-left */
+  margin-top: 20px;              /* small spacing from top */
 }
 
-@media (max-width: 768px) {
+/* RIGHT SIDE (MIDDLE DOWN RIGHT) */
+.hero-right {
+  position: absolute;
+  right: 120px;
+  top: 50%;                      /* middle of screen */
+  transform: translateY(10%);    /* push down slightly */
+  
+  opacity: 0;
+  animation: slideInRight 1.2s ease forwards 0.5s;
+}
+
+.hero-photo {
+  width: 330px;
+  height: 330px;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.5);
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+/* ---------------------- TYPING ANIMATION ---------------------- */
+
+.type {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid rgba(255,255,255,0.8);
+  width: 0;
+  animation: typing 2s steps(30) forwards, blink 0.75s step-end infinite;
+}
+
+.name {
+  font-size: 48px;
+  font-weight: 700;
+  animation-delay: 0.2s;
+}
+
+.degree {
+  font-size: 22px;
+  opacity: 0.9;
+  animation-delay: 1.3s;
+}
+
+.role {
+  font-size: 22px;
+  opacity: 0.9;
+  animation-delay: 2.4s;
+}
+
+@keyframes typing { from { width: 0; } to { width: 100%; } }
+@keyframes blink { 50% { border-color: transparent; } }
+
+/* ---------------------- BUTTONS ---------------------- */
+
+.hero-buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 16px;
+}
+
+.hero-btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: "Consolas", monospace;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.08);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+  backdrop-filter: blur(4px);
+}
+
+.hero-btn:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+/* ---------------------- IMAGE ANIMATION ---------------------- */
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateY(10%);
+  }
+}
+
+/* ---------------------- RESPONSIVE ---------------------- */
+
+@media (max-width: 1024px) {
   .hero-section {
-    padding-left: 40px;
+    padding: 40px;
   }
 
-  .hero-section h1 {
-    font-size: 40px;
+  .hero-right {
+    right: 40px;
+    top: 60%;
+  }
+}
+
+/* ---------------------- MOBILE FIX ---------------------- */
+@media (max-width: 600px) {
+
+  .hero-section {
+    padding: 60px 20px;               /* reduce padding */
+    display: block;              /* stack vertically */
+  }
+
+  .hero-left {
+    max-width: 100% !important;  /* full width text */
+    margin-top: 10px;
+  }
+
+  .name {
+    font-size: 28px !important;  /* smaller heading */
+  }
+
+  .degree,
+  .role {
+    font-size: 16px !important;  /* smaller sub text */
+  }
+
+  .type {
+    white-space: normal !important; /* allow mobile wrapping */
+    width: auto !important;
+    border-right: none !important;  /* remove cursor for wrapping */
+    animation: none !important;     /* disable broken typing on mobile */
+  }
+
+  .hero-buttons {
+    flex-direction: column;      /* stack buttons */
+    gap: 10px;
+    width: 100%;
+  }
+
+  .hero-btn {
+    width: 100%;
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  /* photo (if you re-enable it later) */
+  .hero-right {
+    position: relative;
+    right: 0;
+    top: auto;
+    margin-top: 30px;
+    transform: none;
+    text-align: center;
+  }
+
+  .hero-photo {
+    width: 180px;
+    height: 180px;
   }
 }
